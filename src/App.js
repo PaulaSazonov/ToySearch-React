@@ -6,8 +6,7 @@ import Content from './Components/Content';
 
 class App extends Component {
 
-    state = {toys: []}
-    data = [];
+    state = {toys: []};
 
     getListAndUpdate = () => {
         getAllToys(function (list) {
@@ -27,7 +26,8 @@ class App extends Component {
             <div>
                 <Switch>
                     <Route exact path="/" component={Content}/>
-                    <Route path="/tuote/:id" component={ProductPage} data={this.state.toys}/>
+                    <Route path="/tuote/:id" component={ProductPage} render={(props) =>
+                        (<ProductPage{...props} listOfToys={this.state.toys}/>)}/>
                 </Switch>
             </div>
         </Router>

@@ -8,7 +8,7 @@ class ProductPage extends Component {
             <div>
                 <PageHeader> Tuotteen tiedot </PageHeader>
                 <p>{this.props.match.params.id}</p>
-                <p>{this.props.data}</p>
+                <p>{this.props.listOfToys}</p>
 
             </div>
         )
