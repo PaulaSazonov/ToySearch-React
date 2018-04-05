@@ -3,10 +3,11 @@ import {FormGroup} from 'react-bootstrap';
 import {FormControl} from 'react-bootstrap';
 import {ControlLabel} from 'react-bootstrap';
 import {ReactBootstrapSlider} from 'react-bootstrap-slider';
+import '../App.css';
 
 
 class Filter extends Component {
-    state = {toys: [], producer: ''}
+    state = {toys: [], producer: '', min: 0, max: 500, step: 10, currentValue: 250}
 
     makeASearch = (event) => {
         event.preventDefault();
@@ -29,7 +30,15 @@ class Filter extends Component {
                 </form>
                 <div>
                 <br/>
-                    <ReactBootstrapSlider/>
+                    <ReactBootstrapSlider
+                        value={this.state.currentValue}
+                        change={this.changeValue}
+                        slideStop={this.changeValue}
+                        step={this.state.step}
+                        max={this.state.max}
+                        min={this.state.min}
+                        orientation="vertical"
+                        reversed={true}/>
                 {/*<form>*/}
                     {/*<FormGroup bsSize="small" controlId="formControlsSelect">*/}
                         {/*<ControlLabel>Rajaa hinnan mukaan</ControlLabel>*/}
