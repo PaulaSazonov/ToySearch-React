@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {FormGroup} from 'react-bootstrap';
-import {InputGroup} from 'react-bootstrap';
 import {FormControl} from 'react-bootstrap';
 import {ControlLabel} from 'react-bootstrap';
+import {ReactBootstrapSlider} from 'react-bootstrap-slider';
+
 
 class Filter extends Component {
     state = {toys: [], producer: ''}
@@ -28,17 +29,19 @@ class Filter extends Component {
                 </form>
                 <div>
                 <br/>
-                <form>
-                    <FormGroup bsSize="small" controlId="formControlsSelect">
-                        <ControlLabel>Rajaa hinnan mukaan</ControlLabel>
-                        <FormControl componentClass="select" placeholder="Rajaa hinnan mukaan">
-                            <option value="ten">Hinta max 10€</option>
-                            <option value="twenty">Hinta max 20€</option>
-                            <option value="thirty">Hinta max 30€</option>
-                            <option value="forty">Hinta max 40€</option>
-                        </FormControl>
-                    </FormGroup>
-                </form></div>
+                    <ReactBootstrapSlider/>
+                {/*<form>*/}
+                    {/*<FormGroup bsSize="small" controlId="formControlsSelect">*/}
+                        {/*<ControlLabel>Rajaa hinnan mukaan</ControlLabel>*/}
+                        {/*<FormControl componentClass="select" placeholder="Rajaa hinnan mukaan">*/}
+                            {/*<option value="ten">Hinta max 10€</option>*/}
+                            {/*<option value="twenty">Hinta max 20€</option>*/}
+                            {/*<option value="thirty">Hinta max 30€</option>*/}
+                            {/*<option value="forty">Hinta max 40€</option>*/}
+                        {/*</FormControl>*/}
+                    {/*</FormGroup>*/}
+                {/*</form>*/}
+                </div>
             </div>
         )
     }
