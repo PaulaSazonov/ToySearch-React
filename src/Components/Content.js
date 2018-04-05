@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ToyList from './ToyList'
 import Search from './Search';
 import Filter from './Filter';
-import {getAllToys} from "../ServiceClient";
+import {getAllToys, getToysBySearchTerm} from "../ServiceClient";
 import {getToysByProducer} from "../ServiceClient";
 import {PageHeader} from 'react-bootstrap';
 import {Grid} from 'react-bootstrap';
@@ -16,20 +16,20 @@ class Content extends Component {
         this.getListAndUpdate();
     }
 
-    getSearched = (producer) => {
-        getToysByProducer(producer, function (list, error) {
+    getSearched = (SearchTerm) => {
+        getToysBySearchTerm(SearchTerm, function (list, error) {
             if (error){
                 this.setState({notfound: true});
 
             } else {
-                this.setState({toys: list, notfound: false})
+                this.setState({toys: list.hits, notfound: false})
             }
         }.bind(this))
     }
 
     getListAndUpdate = () => {
         getAllToys(function (list) {
-            this.setState({toys: list})
+            this.setState({toys: list.hits})
         }.bind(this))
     }
 
