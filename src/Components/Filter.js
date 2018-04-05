@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {FormGroup} from 'react-bootstrap';
 import {FormControl} from 'react-bootstrap';
 import {ControlLabel} from 'react-bootstrap';
-import {ReactBootstrapSlider} from 'react-bootstrap-slider';
+import ReactBootstrapSlider from 'react-bootstrap-slider';
+import BootstrapSlider from 'bootstrap-slider/dist/css/bootstrap-slider.min.css';
 import '../App.css';
 
 
@@ -30,15 +31,18 @@ class Filter extends Component {
                 </form>
                 <div>
                 <br/>
-                    <ReactBootstrapSlider
+                    <div>
+                        <ControlLabel>Rajaa hinnan mukaan</ControlLabel>
+                        <br/>
+                    <span>0 </span><ReactBootstrapSlider
                         value={this.state.currentValue}
-                        change={this.changeValue}
                         slideStop={this.changeValue}
                         step={this.state.step}
                         max={this.state.max}
                         min={this.state.min}
-                        orientation="vertical"
-                        reversed={true}/>
+                        orientation="horizontal"
+                        reversed={false}/><span>500</span>
+                    </div>
                 {/*<form>*/}
                     {/*<FormGroup bsSize="small" controlId="formControlsSelect">*/}
                         {/*<ControlLabel>Rajaa hinnan mukaan</ControlLabel>*/}
