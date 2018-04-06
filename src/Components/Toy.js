@@ -12,8 +12,9 @@ class Toy extends Component {
                     <p>{this.props.toy.producer}</p>
                     <p>{this.props.toy.name}</p>
                     <p>{this.props.toy.price}</p>
-                    <p><a href={this.props.toy.urlToWebStore}>{this.props.toy.webstoreName} </a> </p>
-                    <Link to={"/tuote/"+ this.props.toy.id}>Tuotteen tietoihin</Link>
+                    <p><a href={this.props.toy.urlToWebStore}> {this.props.toy.webstoreName} </a> </p>
+                    <Link to={"/tuote/"+ this.props.id}>Tuotteen tietoihin</Link>
+
                 </Thumbnail>
             </Col>
         )

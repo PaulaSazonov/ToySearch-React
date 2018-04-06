@@ -8,7 +8,7 @@ class ToyList extends Component {
     render () {
         var all = this.props.toys
             .map(function (toy) {
-                return (<Toy toy={toy.source} key={toy.id}></Toy>)
+                return (<Toy toy={toy.source} key={toy.id} id={toy.id}></Toy>)
                 
             });
         return(
