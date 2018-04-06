@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import ProductPage from './Components/ProductPage';
 import {getAllToys, getToysBySearchTerm} from "./ServiceClient";
 import Content from './Components/Content';
+import NotFound from './Components/Content';
 
 class App extends Component {
     state = {toys: []};
 
     componentDidMount = () => {
         this.getListAndUpdate();
-    }
+    };
+
     getListAndUpdate = () => {
         getAllToys(function (list) {
             this.setState({toys: list.hits})
         }.bind(this))
-    }
+    };
     getSearched = (SearchTerm) => {
         getToysBySearchTerm(SearchTerm, function (list, error) {
             if (error){
@@ -24,7 +26,7 @@ class App extends Component {
                 this.setState({toys: list.hits, notfound: false})
             }
         }.bind(this))
-    }
+    };
 
     render() {
     return (
@@ -36,9 +38,10 @@ class App extends Component {
                         )}
                     />
                     <Route path="/tuote/:id" render={(props) => (
-                        <ProductPage {...props} alltoys={this.state.toys}/>
+                        <ProductPage {...props} toys={this.state.toys}/>
                     )}
                     />
+                    <Route component={NotFound}/>
                 </Switch>
             </div>
         </Router>
