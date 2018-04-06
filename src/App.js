@@ -27,7 +27,7 @@ class App extends Component {
                 <Switch>
                     <Route exact path="/" component={Content}/>
                     <Route path="/tuote/:id" component={ProductPage} render={(props) =>
-                        (<ProductPage{...props} listOfToys={this.state.toys}/>)}/>
+                        (<ProductPage{...props} data={this.state.toys}/>)}/>
                 </Switch>
             </div>
         </Router>

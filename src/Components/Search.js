@@ -3,6 +3,7 @@ import {FormGroup} from 'react-bootstrap';
 import {FormControl} from 'react-bootstrap';
 import {InputGroup} from 'react-bootstrap';
 import {Glyphicon} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 
 class Search extends Component {
     state = {toys: [], producer: ''}
@@ -22,10 +23,14 @@ class Search extends Component {
                 <form onSubmit={this.makeASearch}>
                     <FormGroup bsSize="large">
                         <InputGroup>
-                            <InputGroup.Addon>
-                            <Glyphicon glyph="search" />
-                            </InputGroup.Addon>
-                        <FormControl value={this.state.producer} onChange={this.producerValueChanged} type="text" placeholder="Hae leluja" />
+                            <FormControl value={this.state.producer} onChange={this.producerValueChanged} type="text" placeholder="Hae leluja" />
+                            <InputGroup.Button>
+                                <Button onClick={this.makeASearch}>
+                                    <InputGroup.Addon>
+                                        <Glyphicon glyph="search" />
+                                    </InputGroup.Addon>
+                                </Button>
+                            </InputGroup.Button>
                         </InputGroup>
                     </FormGroup>
                 </form>
