@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import Toy from './Toy';
-import '../App.css';
+import '../Stylesheets/App.css';
 import {Grid} from 'react-bootstrap';
 import {Row} from 'react-bootstrap';
 
 class ToyList extends Component {
     render () {
-        var all = this.props.toys
+        let all = this.props.toys
             .map(function (toy) {
-                return (<Toy toy={toy.source} key={toy.id} id={toy.id}></Toy>)
+                return (<Toy toy={toy.source} key={toy.id} id={toy.id}/>)
                 
             });
         return(

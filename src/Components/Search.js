@@ -4,19 +4,19 @@ import {FormControl} from 'react-bootstrap';
 import {InputGroup} from 'react-bootstrap';
 import {Glyphicon} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
-import '../App.css';
+import '../Stylesheets/App.css';
 
 class Search extends Component {
-    state = {toys: [], producer: ''}
+    state = {toys: [], producer: ''};
 
     makeASearch = (event) => {
         event.preventDefault();
         this.props.getSearched(this.state.producer);
-    }
+    };
 
     producerValueChanged = (event) => {
         this.setState({producer: event.target.value})
-    }
+    };
 
     render () {
         return (
