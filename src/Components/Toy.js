@@ -8,17 +8,17 @@ class Toy extends Component {
     render () {
         return (
             <Col md={3}>
-                <div className="details">
-                    <Thumbnail src={toy}>
+                <Thumbnail src={toy}>
+                    <p>{this.props.toy.producer}</p>
+                    <p>{this.props.toy.name}</p>
+                    <p>{new Intl.NumberFormat('fi-FI', {
+                        style: 'currency',
+                        currency: 'EUR'
+                    }).format(this.props.toy.price)}</p>
+                    <p><a href={this.props.toy.urlToWebStore}> {this.props.toy.webstoreName} </a> </p>
+                    <Link to={"/tuote/"+ this.props.id}>Tuotteen tietoihin</Link>
 
-                        <p>{this.props.toy.producer}</p>
-                        <p>{this.props.toy.name}</p>
-                        <p>{this.props.toy.price}</p>
-                        <p><a href={this.props.toy.urlToWebStore}> {this.props.toy.webstoreName} </a> </p>
-                        <Link to={"/tuote/"+ this.props.id}>Tuotteen tietoihin</Link>
-
-                    </Thumbnail>
-                </div>
+                </Thumbnail>
             </Col>
         )
     }
