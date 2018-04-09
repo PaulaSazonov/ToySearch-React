@@ -29,14 +29,14 @@ class Filter extends Component {
                     <ControlLabel>Rajaa hinnan mukaan</ControlLabel>
                     </div>
                     <div>
-                        <span>0 </span><ReactBootstrapSlider
+                        <span>0€ <ReactBootstrapSlider
                         value={this.state.currentValue}
                         slideStop={this.changeValue}
                         step={this.state.step}
                         max={this.state.max}
                         min={this.state.min}
                         orientation="horizontal"
-                        reversed={false}/><span>500</span>
+                        reversed={false}/> 500€</span>
                     </div>
                 </div>
                 <br/>

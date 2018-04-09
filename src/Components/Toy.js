@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 class Toy extends Component {
     render () {
         return (
-            <Col md={3}>
+            <Col xs={1} sm={2} md={3} lg={4}>
                 <Thumbnail src={toy}>
                     <p>{this.props.toy.producer}</p>
                     <p>{this.props.toy.name}</p>

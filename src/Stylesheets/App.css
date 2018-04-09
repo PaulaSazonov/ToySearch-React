@@ -2,7 +2,11 @@ body {
     font-family: 'Open Sans';
     font-size: large;
     background-color: aliceblue;
-    box-sizing: border-box
+    box-sizing: border-box;
+    background-image: url("/landscape.png");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top;
 
 }
 
@@ -20,6 +24,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 25%;
+    min-width: 5em;
 
 }
 
@@ -54,7 +59,7 @@ body {
     padding: 1em;
     display: block;
     width: 100%;
-
+    min-width: 15em;
 }
 
 .producerfilter{
@@ -66,18 +71,22 @@ body {
     display: block;
     padding: 1em;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
     .flex-row > [class*="col-"] {
     width: 100%;
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 992px) {
+@media only screen and (min-width: 600px) and (max-width: 992px) {
     .flex-row > [class*="col-"] {
     width: 50%;
   }
 }
-
+@media only screen and (min-width: 993px) and (max-width: 1175px) {
+    .flex-row > [class*="col-"] {
+        width: 33%;
+    }
+}
 .input-group-addon{
     font-size: x-large;
     display: contents;
