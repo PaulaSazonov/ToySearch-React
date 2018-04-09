@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {PageHeader} from 'react-bootstrap';
 import {Table} from 'react-bootstrap';
+import {getToysById} from "../ServiceClient";
 
 class ProductPage extends Component {
     constructor(props) {
@@ -12,6 +13,16 @@ class ProductPage extends Component {
             product: {}
         }
     }
+/*
+    componentDidMount = () => {
+        this.getProductById('61lyqmIBfpKc0tS_YXsz');
+    };
+
+    getProductById = () => {
+        getToysById(function (list) {
+            console.log(list);
+        }.bind(this))
+    };*/
 
     render () {
         let product;
@@ -20,6 +31,25 @@ class ProductPage extends Component {
                 product= this.props.toys[i].source;
             }
         }
+
+        let storeList = product.details.map(t => (<tr>
+                <td>
+                    {product.name}
+                </td>
+                <td>
+                    {new Intl.NumberFormat('fi-FI', {
+                        style: 'currency',
+                        currency: 'EUR'
+                    }).format(t.price)}
+                </td>
+                <td>
+                    {t.webstoreName}
+                </td>
+                <td>
+                    <a href={t.urlToWebstore}>Siirry myyjän sivuille</a>
+                </td>
+            </tr>
+        ))
         return (
             <div>
                 <h1 className="page-header"> Tuotteen tiedot </h1>
@@ -39,19 +69,7 @@ class ProductPage extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>
-                            {product&&product.name}
-                        </td>
-                        <td>
-                            {product&&product.price}
-                        </td>
-                        <td>
-                            {product&&product.webstoreName}
-                        </td>
-                        <td><a href={product&&product.urlToWebStore}>Siirry myyjän sivuille</a>
-                        </td>
-                    </tr>
+                    {storeList}
                     </tbody>
                 </Table>
 
