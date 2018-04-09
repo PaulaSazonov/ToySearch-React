@@ -22,7 +22,7 @@ class ProductPage extends Component {
         }
         return (
             <div>
-                <PageHeader> Tuotteen tiedot </PageHeader>
+                <h1 className="page-header"> Tuotteen tiedot </h1>
                 <Table>
                     <thead>
                         <tr>

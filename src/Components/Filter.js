@@ -24,18 +24,12 @@ class Filter extends Component {
         return (
             <div>
                 <br/>
-                <form onSubmit={this.makeASearch}>
-                    <ControlLabel>Rajaa valmistajan mukaan</ControlLabel>
-                    <FormGroup bsSize="small">
-                        <FormControl value={this.state.producer} onChange={this.producerValueChanged} type="text" placeholder="Valmistajan nimi" />
-                    </FormGroup>
-                </form>
-                <div>
-                <br/>
+                <div className="priceslider">
                     <div>
-                        <ControlLabel>Rajaa hinnan mukaan</ControlLabel>
-                        <br/>
-                    <span>0 </span><ReactBootstrapSlider
+                    <ControlLabel>Rajaa hinnan mukaan</ControlLabel>
+                    </div>
+                    <div>
+                        <span>0 </span><ReactBootstrapSlider
                         value={this.state.currentValue}
                         slideStop={this.changeValue}
                         step={this.state.step}
@@ -44,18 +38,17 @@ class Filter extends Component {
                         orientation="horizontal"
                         reversed={false}/><span>500</span>
                     </div>
-                {/*<form>*/}
-                    {/*<FormGroup bsSize="small" controlId="formControlsSelect">*/}
-                        {/*<ControlLabel>Rajaa hinnan mukaan</ControlLabel>*/}
-                        {/*<FormControl componentClass="select" placeholder="Rajaa hinnan mukaan">*/}
-                            {/*<option value="ten">Hinta max 10€</option>*/}
-                            {/*<option value="twenty">Hinta max 20€</option>*/}
-                            {/*<option value="thirty">Hinta max 30€</option>*/}
-                            {/*<option value="forty">Hinta max 40€</option>*/}
-                        {/*</FormControl>*/}
-                    {/*</FormGroup>*/}
-                {/*</form>*/}
                 </div>
+                <br/>
+                <div className="producerfilter">
+                    <form onSubmit={this.makeASearch}>
+                        <ControlLabel>Rajaa valmistajan mukaan</ControlLabel>
+                        <FormGroup bsSize="small">
+                            <FormControl value={this.state.producer} onChange={this.producerValueChanged} type="text" placeholder="Valmistajan nimi" />
+                        </FormGroup>
+                    </form>
+                </div>
+
             </div>
         )
     }

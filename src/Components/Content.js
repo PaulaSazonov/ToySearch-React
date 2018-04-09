@@ -19,7 +19,7 @@ class Content extends Component {
         return (
             <Grid>
                 <Row>
-                    <PageHeader> Leluhaku </PageHeader>
+                    <h1 className="page-header"> Leluhaku </h1>
                 </Row>
                 <Row>
                     <Search getSearched={this.props.getSearched}/>

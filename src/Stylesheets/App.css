@@ -1,65 +1,88 @@
+body {
+    font-family: 'Open Sans';
+    font-size: large;
+    background-color: aliceblue;
+    box-sizing: border-box
+
+}
+
 .container {
-  width: 100%
+    padding-top: 2em;
+    width: 100%;
+
 }
 .flex-row {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+
 }
 .flex-row > [class*='col-'] {
-  display: flex;
-  flex-direction: column;
-  width: 25%;
-  height: max-content;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+
+}
+
+.caption {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 15em;
+
 
 }
 .flex-row.row:after,
 .flex-row.row:before {
-  display: flex;
+    display: flex;
+}
+.page-header {
+    text-align: center;
+    font-family: 'Jua';
+    font-size: 5em;
+
+}
+
+.searchbar {
+    padding: 1em;
+    padding-top: 2em;
+    background-color: #82b3de;
+    border-radius: 10px;
+}
+.priceslider{
+    background-color: gold;
+    border-radius: 10px;
+    padding: 1em;
+    display: block;
+    width: 100%;
+
+}
+
+.producerfilter{
+    padding: 1em;
+    background-color: yellowgreen;
+    border-radius: 10px;
+}
+.control-label{
+    display: block;
+    padding: 1em;
 }
 @media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  .flex-row > [class*="col-"] {
+    .flex-row > [class*="col-"] {
     width: 100%;
   }
 }
-/*.glyphicon {*/
-  /*display: inline-block;*/
-/*}*/
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .flex-row > [class*="col-"] {
+    width: 50%;
+  }
+}
+
 .input-group-addon{
     font-size: x-large;
     display: contents;
 }
 
-
-
-/*.App {*/
-  /*text-align: center;*/
-/*}*/
-
-/*.App-logo {*/
-  /*animation: App-logo-spin infinite 20s linear;*/
-  /*height: 80px;*/
-/*}*/
-
-/*.App-header {*/
-  /*background-color: #222;*/
-  /*height: 150px;*/
-  /*padding: 20px;*/
-  /*color: white;*/
-/*}*/
-
-/*.App-title {*/
-  /*font-size: 1.5em;*/
-/*}*/
-
-/*.App-intro {*/
-  /*font-size: large;*/
-/*}*/
-
-/*@keyframes App-logo-spin {*/
-  /*from { transform: rotate(0deg); }*/
-  /*to { transform: rotate(360deg); }*/
-/*}*/
 
 
 
