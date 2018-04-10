@@ -20,6 +20,11 @@ class Filter extends Component {
         this.setState({producer: event.target.value})
     };
 
+    changeValue = (event) => {
+        this.setState({currentValue: event.target.value})
+        
+    }
+
     render () {
         return (
             <div>
