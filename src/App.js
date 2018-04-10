@@ -24,7 +24,8 @@ class App extends Component {
             if (error){
                 this.setState({notfound: true});
             } else {
-                this.setState({toys: list.hits, notfound: false});
+                this.setState({toys: list[0].hits, notfound: false});
+                this.setState({producers: list[1], notfound: false});
             }
         }.bind(this))
     };
