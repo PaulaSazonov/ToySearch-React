@@ -53,6 +53,10 @@ body {
     background-color: #82b3de;
     border-radius: 10px;
 }
+.input-group-btn{
+    height: 46.22px;
+
+}
 .priceslider{
     background-color: gold;
     border-radius: 10px;
