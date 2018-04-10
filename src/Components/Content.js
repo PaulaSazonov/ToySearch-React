@@ -30,7 +30,7 @@ class Content extends Component {
                 </Row>
                 <Row>
                     <Col md={3}>
-                        <Filter getSearched={this.props.getSearched} filterByPrice={this.props.filterByPrice}/>
+                        <Filter getSearched={this.props.getSearched} filterByPrice={this.props.filterByPrice} producers={this.props.producers} getFilteredByProducer={this.props.getFilteredByProducer}/>
                     </Col>
                     <Col  md={9}>
                         {this.state.notfound ?

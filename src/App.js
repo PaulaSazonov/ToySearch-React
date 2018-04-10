@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import ProductPage from './Components/ProductPage';
-import {getAllToys, getToysBySearchTerm} from "./ServiceClient";
+import {getAllToys, getToysBySearchTerm, getAllToys2} from "./ServiceClient";
 import Content from './Components/Content';
 import NotFound from './Components/Content';
 
 class App extends Component {
-    state = {toys: []};
+    state = {toys: [], producers: []};
 
     componentDidMount = () => {
         this.getListAndUpdate();
     };
 
     getListAndUpdate = () => {
-        getAllToys(function (list) {
-            this.setState({toys: list.hits})
+        getAllToys2(function (list) {
+            this.setState({toys: list[0].hits});
+            this.setState({producers: list[1]});
         }.bind(this))
     };
+
     getSearched = (SearchTerm) => {
         getToysBySearchTerm(SearchTerm, function (list, error) {
             if (error){
                 this.setState({notfound: true});
-
             } else {
-                this.setState({toys: list.hits, notfound: false})
+                this.setState({toys: list.hits, notfound: false});
             }
         }.bind(this))
     };
@@ -41,13 +42,38 @@ class App extends Component {
         this.setState({toys: filteredtoys})
     }
 
+    getFilteredByProducer = (ProducerSet) => {
+        if(ProducerSet.size == 0){
+            this.getListAndUpdate();
+        }
+        let tempToys = new Set();
+        let tempProducers = new Set();
+
+        for(var i = 0; i < this.state.toys.length; i++){
+            let toy = this.state.toys[i];
+            let name = toy.source.name;
+            ProducerSet.forEach(function (value) {
+                if(name.includes(value)){
+                    console.log(name);
+                    tempToys.add(toy);
+                    tempProducers.add(toy.source.name.split(" ")[0]);
+                }
+            })
+        }
+
+        console.log(tempToys);
+        console.log(tempProducers);
+        this.setState({toys: Array.from(tempToys)});
+        this.setState({producers: Array.from(tempProducers)});
+    }
+
     render() {
     return (
         <Router>
             <div>
                 <Switch>
                     <Route exact path="/" render={(props) => (
-                        <Content {...props} getSearched={this.getSearched} toys={this.state.toys} filterByPrice={this.filterByPrice}/>
+                        <Content {...props} getSearched={this.getSearched} toys={this.state.toys} filterByPrice={this.filterByPrice} producers={this.state.producers} getFilteredByProducer={this.getFilteredByProducer}/>
                         )}
                     />
                     <Route exact path="/tuote/:id" component={ProductPage}/>
