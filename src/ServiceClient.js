@@ -20,7 +20,7 @@ export function getToysBySearchTerm (searchTerm, callback) {
             callback(json);
 
         }).catch(function () {
-            callback([], "virhe");
+            callback([], Error);
         })
 }
 
@@ -28,7 +28,7 @@ export function getToysByProducer (producer, callback) {
     return fetch("/api/toys/"+producer)
         .then(function (response) {
             if (response.status === 404) {
-                throw "virhe";
+                throw new Error("virhe");
             }
             return response.json();
         })
@@ -36,7 +36,7 @@ export function getToysByProducer (producer, callback) {
             callback(json);
 
         }).catch(function () {
-            callback([], "virhe");
+            callback([], Error);
         })
 }
 
