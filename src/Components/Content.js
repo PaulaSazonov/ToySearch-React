@@ -6,6 +6,8 @@ import {PageHeader} from 'react-bootstrap';
 import {Grid} from 'react-bootstrap';
 import {Row} from 'react-bootstrap';
 import {Col} from 'react-bootstrap';
+import {Image} from 'react-bootstrap';
+import logo from '../Images/Lelukauppa.png'
 
 class Content extends Component {
     constructor(props){
@@ -19,7 +21,9 @@ class Content extends Component {
         return (
             <Grid>
                 <Row>
-                    <h1 className="page-header"> Leluhaku </h1>
+                    <Col smOffset={1} mdOffset={3}>
+                    <Image classname="extraPaddingBottom" responsive src={logo} alt="" style={{paddingBottom:"3%"}} />
+                    </Col>
                 </Row>
                 <Row>
                     <Search getSearched={this.props.getSearched}/>
