@@ -41,12 +41,11 @@ export function getToysByProducer (producer, callback) {
 }
 
 export function getToysById (id, callback) {
-    return fetch("/api/61lyqmIBfpKc0tS_YXsz")
+    return fetch("/api/"+id)
         .then(function (response) {
             if (response.status === 404) {
                 throw "virhe";
             }
-            console.log(response);
             return response.json();
         })
         .then(function (json) {

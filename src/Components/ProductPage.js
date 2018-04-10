@@ -10,31 +10,28 @@ class ProductPage extends Component {
         this.state= {
             toys: this.props.toys,
             wantedId: this.props.match.params.id,
-            product: {}
-        }
+            product: null
+        };
     }
-/*
     componentDidMount = () => {
-        this.getProductById('61lyqmIBfpKc0tS_YXsz');
+        this.getProductById(this.state.wantedId);
     };
 
-    getProductById = () => {
-        getToysById(function (list) {
-            console.log(list);
+    getProductById = (id) => {
+        getToysById(id,function (receivedProducts) {
+            this.setState({product: receivedProducts})
         }.bind(this))
-    };*/
+    };
 
     render () {
-        let product;
-        for (let i = 0; i<this.props.toys.length; i++){
-            if (this.props.toys[i].id === this.state.wantedId){
-                product= this.props.toys[i].source;
-            }
-        }
+        if (!this.state.product||this.state.product.length===0) {
+            return null;
+        };
 
-        let storeList = product.details.map(t => (<tr>
+        let storeList = this.state.product.details.map(t => (
+            <tr key={this.state.product.name}>
                 <td>
-                    {product.name}
+                    {this.state.product.name}
                 </td>
                 <td>
                     {new Intl.NumberFormat('fi-FI', {
@@ -49,7 +46,7 @@ class ProductPage extends Component {
                     <a href={t.urlToWebstore}>Siirry myyjän sivuille</a>
                 </td>
             </tr>
-        ))
+        ));
         return (
             <div>
                 <h1 className="page-header"> Tuotteen tiedot </h1>
