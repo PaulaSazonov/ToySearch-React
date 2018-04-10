@@ -3,6 +3,8 @@ import {PageHeader} from 'react-bootstrap';
 import {Table} from 'react-bootstrap';
 import {getToysById} from "../ServiceClient";
 import {Image} from 'react-bootstrap';
+import '../Stylesheets/App.css';
+
 
 class ProductPage extends Component {
     constructor(props) {
@@ -51,7 +53,7 @@ class ProductPage extends Component {
         return (
             <div>
                 <PageHeader> Tuotteen tiedot </PageHeader>
-                <Image src={this.state.product.details.urlToImage}/>
+                <Image src={this.state.product.details[0].urlToImage} responsive/>
                 <Table>
                     <thead>
                         <tr>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Jumbotron} from 'react-bootstrap-slider';
+import {Jumbotron} from 'react-bootstrap';
 
 class NotFound extends Component {
     render (){

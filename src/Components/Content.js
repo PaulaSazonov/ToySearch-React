@@ -22,7 +22,9 @@ class Content extends Component {
             <Grid>
                 <Row>
                     <Col smOffset={1} mdOffset={3}>
-                    <Image classname="extraPaddingBottom" responsive src={logo} alt="" style={{paddingBottom:"3%"}} />
+                        <PageHeader>
+                            <Image responsive src={logo} alt=""/>
+                        </PageHeader>
                     </Col>
                 </Row>
                 <Row>

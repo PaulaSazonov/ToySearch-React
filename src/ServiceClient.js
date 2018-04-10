@@ -12,7 +12,7 @@ export function getToysBySearchTerm (searchTerm, callback) {
     return fetch("/api/search?q="+searchTerm)
         .then(function (response) {
             if (response.status === 404) {
-                throw "virhe";
+                throw new Error("virhe");
             }
             return response.json();
         })

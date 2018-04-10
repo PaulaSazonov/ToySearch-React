@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom
 import ProductPage from './Components/ProductPage';
 import {getAllToys, getToysBySearchTerm, getAllToys2} from "./ServiceClient";
 import Content from './Components/Content';
-import NotFound from './Components/Content';
+import NotFound from './Components/NotFound';
 
 class App extends Component {
     state = {toys: [], producers: []};
@@ -14,8 +14,7 @@ class App extends Component {
 
     getListAndUpdate = () => {
         getAllToys2(function (list) {
-            this.setState({toys: list[0].hits});
-            this.setState({producers: list[1]});
+            this.setState({toys: list[0].hits, producers: list[1]});
         }.bind(this))
     };
 
@@ -79,8 +78,7 @@ class App extends Component {
                     <Route exact path="/tuote/:id" component={ProductPage}/>
                     )}
                     />
-                    <Redirect to="/404"/>
-                    <Route exact path="/404" component={NotFound}/>
+                    <Route component={NotFound}/>
                 </Switch>
             </div>
         </Router>
