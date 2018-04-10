@@ -9,7 +9,7 @@ export function getAllToys (callback) {
 }
 
 export function getToysBySearchTerm (searchTerm, callback) {
-    return fetch("/api/search?q="+searchTerm)
+    return fetch("/api/search2?q="+searchTerm)
         .then(function (response) {
             if (response.status === 404) {
                 throw new Error("virhe");
