@@ -14,7 +14,7 @@ class Toy extends Component {
                     <p>{new Intl.NumberFormat('fi-FI', {
                         style: 'currency',
                         currency: 'EUR'
-                    }).format(this.props.toy.price)}</p>
+                    }).format(this.props.toy.lowestPrice)}</p>
                     <p><a href={this.props.toy.urlToWebStore}> {this.props.toy.webstoreName} </a> </p>
                     <Link to={"/tuote/"+ this.props.id}>Tuotteen tietoihin</Link>
 
