@@ -37,8 +37,7 @@ class App extends Component {
                         <Content {...props} getSearched={this.getSearched} toys={this.state.toys}/>
                         )}
                     />
-                    <Route path="/tuote/:id" render={(props) => (
-                        <ProductPage {...props} toys={this.state.toys}/>
+                    <Route path="/tuote/:id" component={ProductPage}/>
                     )}
                     />
                     <Route component={NotFound}/>

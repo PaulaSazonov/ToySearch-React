@@ -11,6 +11,7 @@ class Search extends Component {
 
     makeASearch = (event) => {
         event.preventDefault();
+        this.setState({producer: event.target.value})
         this.props.getSearched(this.state.producer);
     };
 
@@ -24,9 +25,10 @@ class Search extends Component {
                 <form onSubmit={this.makeASearch}>
                     <FormGroup bsSize="large">
                         <InputGroup>
-                            <FormControl value={this.state.producer} onChange={this.producerValueChanged} type="text" placeholder="Hae leluja" />
+                            <FormControl value={this.state.producer} onChange={this.makeASearch} type="text" placeholder="Hae leluja" />
+
                             <InputGroup.Button>
-                                <Button onClick={this.makeASearch}>
+                                <Button bsSize="large" onClick={this.makeASearch}>
                                     <InputGroup.Addon>
                                         <Glyphicon glyph="search" />
                                     </InputGroup.Addon>

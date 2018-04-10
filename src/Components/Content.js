@@ -28,7 +28,7 @@ class Content extends Component {
                     <Col md={3}>
                         <Filter getSearched={this.props.getSearched}/>
                     </Col>
-                    <Col md={9}>
+                    <Col  md={9}>
                         {this.state.notfound ?
                             <p>Hakusanalla ei löytynyt tuotteita</p>
                             :
