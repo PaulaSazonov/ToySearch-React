@@ -9,7 +9,11 @@ import '../Stylesheets/App.css';
 
 
 class Filter extends Component {
-    state = {toys: [], producer: '', min: 0, max: 500, step: 10, currentValue: 250};
+    constructor(props){
+        super(props);
+        this.state = {toys: [], producer: '', min: 0, max: 500, step: 5, currentValue: 250};
+    }
+
 
     makeASearch = (event) => {
         event.preventDefault();
@@ -21,9 +25,9 @@ class Filter extends Component {
     };
 
     changeValue = (event) => {
-        this.setState({currentValue: event.target.value})
-        
-    }
+        this.setState({currentValue: event.target.value});
+        this.props.filterByPrice(this.state.currentValue);
+    };
 
     render () {
         return (

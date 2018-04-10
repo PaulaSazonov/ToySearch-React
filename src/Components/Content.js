@@ -26,7 +26,7 @@ class Content extends Component {
                 </Row>
                 <Row>
                     <Col md={3}>
-                        <Filter getSearched={this.props.getSearched}/>
+                        <Filter getSearched={this.props.getSearched} filterByPrice={this.props.filterByPrice}/>
                     </Col>
                     <Col  md={9}>
                         {this.state.notfound ?

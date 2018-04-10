@@ -28,19 +28,33 @@ class App extends Component {
         }.bind(this))
     };
 
+    filterByPrice = (price) => {
+        let alltoys= this.state.toys;
+        console.log(alltoys);
+        let filteredtoys = [];
+        for (let i = 0; i<alltoys.length; i++){
+            if (alltoys[i].source.lowestPrice <= price){
+                filteredtoys.push(alltoys[i])
+            }
+        }
+        console.log(filteredtoys)
+        this.setState({toys: filteredtoys})
+    }
+
     render() {
     return (
         <Router>
             <div>
                 <Switch>
                     <Route exact path="/" render={(props) => (
-                        <Content {...props} getSearched={this.getSearched} toys={this.state.toys}/>
+                        <Content {...props} getSearched={this.getSearched} toys={this.state.toys} filterByPrice={this.filterByPrice}/>
                         )}
                     />
-                    <Route path="/tuote/:id" component={ProductPage}/>
+                    <Route exact path="/tuote/:id" component={ProductPage}/>
                     )}
                     />
-                    <Route component={NotFound}/>
+                    <Redirect to="/404"/>
+                    <Route exact path="/404" component={NotFound}/>
                 </Switch>
             </div>
         </Router>

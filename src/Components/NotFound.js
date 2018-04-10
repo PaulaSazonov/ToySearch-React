@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import {Jumbotron} from 'react-bootstrap-slider';
 
 class NotFound extends Component {
     render (){
         return (
-            <div>
+            <Jumbotron>
                 <p>Sivua ei löytynyt</p>
-            </div>
+            </Jumbotron>
 
         )
     }
