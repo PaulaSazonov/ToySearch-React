@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {PageHeader} from 'react-bootstrap';
 import {Table} from 'react-bootstrap';
 import {getToysById} from "../ServiceClient";
+import {Image} from 'react-bootstrap';
 
 class ProductPage extends Component {
     constructor(props) {
@@ -49,7 +50,8 @@ class ProductPage extends Component {
         ));
         return (
             <div>
-                <h1 className="page-header"> Tuotteen tiedot </h1>
+                <PageHeader> Tuotteen tiedot </PageHeader>
+                <Image src={this.state.product.details.urlToImage}/>
                 <Table>
                     <thead>
                         <tr>
