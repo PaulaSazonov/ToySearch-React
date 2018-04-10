@@ -55,3 +55,13 @@ export function getToysById (id, callback) {
             callback([], "virhe");
         })
 }
+
+export function getAllToys2 (callback) {
+    return fetch("/api/toys2")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function(json) {
+            callback(json);
+        })
+}
