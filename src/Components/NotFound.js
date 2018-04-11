@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import '../Stylesheets/App.css';
-import {PageHeader} from 'react-bootstrap';
 import {Image} from 'react-bootstrap';
 import logo from '../Images/Lelukauppa.png';
 
@@ -8,12 +7,12 @@ class NotFound extends Component {
     render (){
         return (
             <div>
-                <PageHeader>
+                <div className="pageHeader">
                     <Image responsive src={logo} alt=""/>
-                </PageHeader>
+                </div>
                 <div className="notfound">
-                    <h1>Sivua ei löytynyt</h1>
-                    <a href='/'>Palaa etusivulle</a>
+                    <h1 id="notfoundtext">Sivua ei löytynyt</h1>
+                    <a id="linktohome" href='/'>Palaa etusivulle</a>
                 </div>
             </div>
 

@@ -21,10 +21,10 @@ class Content extends Component {
         return (
             <Grid>
                 <Row>
-                    <Col smOffset={1} mdOffset={3}>
-                        <PageHeader>
+                    <Col>
+                        <div className="pageHeader">
                             <Image responsive src={logo} alt=""/>
-                        </PageHeader>
+                        </div>
                     </Col>
                 </Row>
                 <Row>

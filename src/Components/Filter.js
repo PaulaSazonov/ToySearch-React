@@ -13,7 +13,7 @@ import Checkbox from './Checkbox';
 class Filter extends Component {
     constructor(props){
         super(props);
-        this.state = {toys: [], producer: '', min: 0, max: 500, step: 5, currentValue: 250};
+        this.state = {toys: [], producer: '', min: 0, max: 200, step: 5, currentValue: 100};
     }
 
 
@@ -85,17 +85,18 @@ class Filter extends Component {
                 <br/>
                 <div className="priceslider">
                     <div>
-                    <ControlLabel>Rajaa hinnan mukaan</ControlLabel>
+                    <ControlLabel>Hintakatto</ControlLabel>
                     </div>
                     <div>
-                        <span>0€ <ReactBootstrapSlider
+                        <div id="pricerange"><span>{this.state.min}€</span><span>{this.state.max}€</span></div>
+                        <ReactBootstrapSlider
                         value={this.state.currentValue}
                         slideStop={this.changeValue}
                         step={this.state.step}
                         max={this.state.max}
                         min={this.state.min}
                         orientation="horizontal"
-                        reversed={false}/> 500€</span>
+                        reversed={false}/>
                     </div>
                 </div>
                 <br/>

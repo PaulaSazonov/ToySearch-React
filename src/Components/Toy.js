@@ -16,7 +16,7 @@ class Toy extends Component {
             <Col xs={1} sm={2} md={3} lg={4}>
                 <Thumbnail src={this.state.urltoimage} onError={this.backupImage}>
                     <p>{this.props.toy.producer}</p>
-                    <p>{this.props.toy.name}</p>
+                    <div className="toydetails">{this.props.toy.name}</div>
                     <p>{new Intl.NumberFormat('fi-FI', {
                         style: 'currency',
                         currency: 'EUR'

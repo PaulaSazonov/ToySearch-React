@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {PageHeader} from 'react-bootstrap';
+import logo from '../Images/Lelukauppa.png';
 import {Table} from 'react-bootstrap';
 import {getToysById} from "../ServiceClient";
 import {Image} from 'react-bootstrap';
@@ -52,32 +52,34 @@ class ProductPage extends Component {
         ));
         return (
             <div>
-                <PageHeader> Tuotteen tiedot </PageHeader>
-
-                <div className="productPageImg" >
-                    <Image src={this.state.product.details[0].urlToImage} responsive rounded/>
+                <div className="pageHeader">
+                    <Image responsive src={logo} alt=""/>
                 </div>
+                <h1 id="productheader"> Tuotteen tiedot </h1>
 
-                <Table>
-                    <thead>
-                        <tr>
-                            <th>
-                                Tuote
-                            </th>
-                            <th>
-                                Hinta
-                            </th>
-                            <th>
-                                Myyjä
-                            </th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {storeList}
-                    </tbody>
-                </Table>
-
+                <div id="productinfocontainer">
+                    <div className="productPageImg" >
+                        <Image src={this.state.product.details[0].urlToImage} responsive rounded/>
+                    </div>
+                    <Table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Tuote
+                                </th>
+                                <th>
+                                    Hinta
+                                </th>
+                                <th>
+                                    Myyjä
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {storeList}
+                        </tbody>
+                    </Table>
+                </div>
             </div>
         )
     }
