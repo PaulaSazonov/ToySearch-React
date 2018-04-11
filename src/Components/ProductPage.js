@@ -55,7 +55,7 @@ class ProductPage extends Component {
                 <div className="pageHeader">
                     <Image responsive src={logo} alt=""/>
                 </div>
-                <h1 id="productheader"> Tuotteen tiedot </h1>
+                <h1 id="productheader">Tuotteen tiedot </h1>
 
                 <div id="productinfocontainer">
                     <div className="productPageImg" >
