@@ -53,7 +53,11 @@ class ProductPage extends Component {
         return (
             <div>
                 <PageHeader> Tuotteen tiedot </PageHeader>
-                <Image src={this.state.product.details[0].urlToImage} responsive/>
+
+                <div className="productPageImg" >
+                    <Image src={this.state.product.details[0].urlToImage} responsive rounded/>
+                </div>
+
                 <Table>
                     <thead>
                         <tr>

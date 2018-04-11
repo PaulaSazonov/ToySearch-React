@@ -22,8 +22,9 @@ class Toy extends Component {
                         currency: 'EUR'
                     }).format(this.props.toy.lowestPrice)}</p>
                     <p><a href={this.props.toy.urlToWebStore}> {this.props.toy.webstoreName} </a> </p>
-                    <Link className="storeLink" to={"/tuote/"+ this.props.id}>Tuotteen tietoihin</Link>
-
+                    <div className="linktostore">
+                        <Link className="storeLink" to={"/tuote/"+ this.props.id}>Tuotteen tietoihin</Link>
+                    </div>
                 </Thumbnail>
             </Col>
         )

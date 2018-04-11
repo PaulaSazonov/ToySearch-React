@@ -42,6 +42,9 @@ class Content extends Component {
                         }
                     </Col>
                 </Row>
+                <Row>
+                    <div className="footerbar"> Lindblom, Lajunen, Sazonov 2018</div>
+                </Row>
             </Grid>
         );
     }

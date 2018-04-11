@@ -7,6 +7,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-position: top;
+    padding: 1em;
 
 }
 
@@ -32,15 +33,14 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
-    height: 15em;
-
-
+    height: 11em;
 }
 .flex-row.row:after,
 .flex-row.row:before {
     display: flex;
 }
 .page-header {
+    padding: 3em;
     text-align: center;
     font-family: 'Jua';
     border-bottom: none;
@@ -85,11 +85,28 @@ body {
 .thumbnail{
     padding-top: 1em;
     border-radius: 10px;
+}
+.productPageImg {
+    display: flex;
+    width: fit-content;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 2em;
+    margin-right: auto;
+    margin-left: auto;
 
+
+}
+.linktostore{
+    align-items: center;
+    position: absolute;
+    bottom: 10%;
 }
 
 .storeLink{
-    footnote-display: block;
+    align-self: center;
     color: green;
 }
 @media only screen and (max-width: 600px) {
@@ -103,7 +120,7 @@ body {
     width: 50%;
   }
 }
-@media only screen and (min-width: 993px) and (max-width: 1175px) {
+@media only screen and (min-width: 993px) and (max-width: 1375px) {
     .flex-row > [class*="col-"] {
         width: 33%;
     }
@@ -112,7 +129,19 @@ body {
     font-size: x-large;
     display: contents;
 }
-.img{
+.notfound{
+    background-color: gold;
+    border-radius: 10px;
+    padding: 3em;
+    margin: 4em;
+}
+.footerbar{
+    background-color: green;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    height: 3em;
+    padding-top: 1em;
 
 }
 
