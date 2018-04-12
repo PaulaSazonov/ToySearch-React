@@ -14,7 +14,7 @@ class ItemPagination extends Component {
         console.log(`active page is ${pageNumber}`);
         this.setState({activePage: pageNumber});
         this.props.updatePage(pageNumber);
-    }
+    };
 
     render() {
         return (

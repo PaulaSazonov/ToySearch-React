@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Checkbox extends Component{
     state = {
         isChecked: false,
-    }
+    };
 
     /**
      * changes checkbox's state when user toggles the box, handleCheckboxChange refers to CheckboxFilter's
@@ -19,7 +19,7 @@ class Checkbox extends Component{
         ));
 
         handleCheckboxChange(label);
-    }
+    };
 
     render() {
         const {label} = this.props;

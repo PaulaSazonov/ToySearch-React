@@ -29,7 +29,7 @@ class ProductPage extends Component {
     render () {
         if (!this.state.product||this.state.product.length===0) {
             return null;
-        };
+        }
 
         let storeList = this.state.product.details.map(t => (
             <tr key={this.state.product.name}>

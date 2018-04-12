@@ -68,11 +68,11 @@ class App extends Component {
 
     getFilteredWithSearchTerm = (SearchTerm) => {
         this.getSearchedWithFilters(SearchTerm, '', [], 1);
-    }
+    };
 
     updatePage = (pageNumber) => {
         this.setState({page: pageNumber});
-    }
+    };
 
     render() {
         let toyListToRender = [];
