@@ -1,27 +1,56 @@
 
-import {Pagination} from "react-bootstrap";
 import React, { Component } from 'react';
+import Pagination from 'react-js-pagination';
 
 class ItemPagination extends Component {
-    render (){
-        let active = 1;
-        let items = [];
-        let lastPagenumber=10;
-        for (let number = 1; number <= 10; number++) {
-            items.push(
-                <Pagination.Item active={number === active}>{number}</Pagination.Item>
-            );
-        }
+    constructor(props) {
+        super(props);
+        this.state = {
+            activePage: this.props.page
+        };
+    }
 
-        const paginationBasic = (
+    handlePageChange = (pageNumber) => {
+        console.log(`active page is ${pageNumber}`);
+        this.setState({activePage: pageNumber});
+        this.props.updatePage(pageNumber);
+    }
+
+    render() {
+        return (
             <div>
-                <Pagination bsSize="large">{items}</Pagination>
+                <Pagination
+                    activePage={this.state.activePage}
+                    itemsCountPerPage={24}
+                    totalItemsCount={this.props.hits}
+                    pageRangeDisplayed={5}
+                    onChange={this.handlePageChange}
+                />
             </div>
         );
-
-
-        return(paginationBasic)
     }
 }
+
+// class ItemPagination extends Component {
+//     render (){
+//         let active = 1;
+//         let items = [];
+//         let lastPagenumber=10;
+//         for (let number = 1; number <= 10; number++) {
+//             items.push(
+//                 <Pagination.Item active={number === active}>{number}</Pagination.Item>
+//             );
+//         }
+//
+//         const paginationBasic = (
+//             <div>
+//                 <Pagination bsSize="large">{items}</Pagination>
+//             </div>
+//         );
+//
+//
+//         return(paginationBasic)
+//     }
+// }
 
 export default ItemPagination;

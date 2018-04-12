@@ -4,6 +4,7 @@ import ToyList from './ToyList'
 import Search from './Search';
 import Filter from './Filter';
 import logo from '../Images/Leluhaku.png'
+import ItemPagination from "./ItemPagination";
 
 class Content extends Component {
     constructor(props){
@@ -36,6 +37,7 @@ class Content extends Component {
                             :
                             <ToyList toys={this.props.toys}/>
                         }
+                        <ItemPagination page={this.props.page} hits={this.props.hits} updatePage={this.props.updatePage}/>
                     </Col>
                 </Row>
                 <Row>
