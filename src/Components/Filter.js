@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import {FormGroup} from 'react-bootstrap';
-import {FormControl} from 'react-bootstrap';
 import {ControlLabel, Button} from 'react-bootstrap';
 import ReactBootstrapSlider from 'react-bootstrap-slider';
 import '../Stylesheets/bootstrap-slider.min.css'

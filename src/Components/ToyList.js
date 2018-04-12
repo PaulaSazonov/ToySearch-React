@@ -3,7 +3,6 @@ import Toy from './Toy';
 import '../Stylesheets/App.css';
 import {Col, Grid} from 'react-bootstrap';
 import {Row} from 'react-bootstrap';
-import ItemPagination from "./ItemPagination";
 
 class ToyList extends Component {
     render () {

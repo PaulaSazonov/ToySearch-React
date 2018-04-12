@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {PageHeader} from 'react-bootstrap';
 import {Table} from 'react-bootstrap';
 import {getToysById} from "../ServiceClient";
 import {Image} from 'react-bootstrap';

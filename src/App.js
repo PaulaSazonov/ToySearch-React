@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import ProductPage from './Components/ProductPage';
-import {getAllToys, getToysBySearchTerm, getAllToys2, getToysBySearchTermAndFilter} from "./ServiceClient";
+import {getToysBySearchTerm, getAllToys2, getToysBySearchTermAndFilter} from "./ServiceClient";
 import Content from './Components/Content';
 import NotFound from './Components/NotFound';
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {PageHeader, Grid, Row,Col,Image} from 'react-bootstrap';
+import {Grid, Row,Col,Image} from 'react-bootstrap';
 import ToyList from './ToyList'
 import Search from './Search';
 import Filter from './Filter';
