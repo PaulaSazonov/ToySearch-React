@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import ProductPage from './Components/ProductPage';
-import {getAllToys, getToysBySearchTerm, getAllToys2} from "./ServiceClient";
+import {getAllToys, getToysBySearchTerm, getAllToys2, getToysBySearchTermAndFilter} from "./ServiceClient";
 import Content from './Components/Content';
 import NotFound from './Components/NotFound';
 
 class App extends Component {
-    state = {toys: [], producers: []};
+    state = {
+        toys: [],
+        producers: [],
+        activePrice: '',
+        activeProducerList: [],
+        activeSearchTerm: ''
+    };
 
     componentDidMount = () => {
         this.getListAndUpdate();
@@ -29,42 +35,36 @@ class App extends Component {
         }.bind(this))
     };
 
-    filterByPrice = (price) => {
-        let alltoys= this.state.toys;
-        console.log(alltoys);
-        let filteredtoys = [];
-        for (let i = 0; i<alltoys.length; i++){
-            if (alltoys[i].source.lowestPrice <= price){
-                filteredtoys.push(alltoys[i])
-            }
-        }
-        console.log(filteredtoys)
-        this.setState({toys: filteredtoys})
+    getSearchedWithFilters = (SearchTerm, Price, ProducerSet) => {
+
+        this.setState({ activeSearchTerm: SearchTerm, activePrice: Price, activeProducerList: ProducerSet }, () => {
+            console.log(this.state.activeProducerList);
+            console.log(this.state.activePrice);
+            console.log(this.state.activeSearchTerm);
+            let pListAsString = '';
+            this.state.activeProducerList.forEach(p => {pListAsString += p+":"});
+            console.log(pListAsString);
+            getToysBySearchTermAndFilter(this.state.activeSearchTerm, this.state.activePrice, pListAsString, function(list, error){
+                if(error){
+                    this.setState({notfound: true});
+                } else {
+                    this.setState({toys: list[0].hits, notfound: false});
+                    this.setState({producers: list[1], notfound: false});
+                }
+            }.bind(this))
+        });
+    };
+
+    getFilteredByPrice = (price) => {
+        this.getSearchedWithFilters(this.state.activeSearchTerm, price, this.state.activeProducerList);
     }
 
     getFilteredByProducer = (ProducerSet) => {
-        if(ProducerSet.size == 0){
-            this.getListAndUpdate();
-        }
-        let tempToys = new Set();
-        let tempProducers = new Set();
+        this.getSearchedWithFilters(this.state.activeSearchTerm, this.state.activePrice, ProducerSet);
+    }
 
-        for(var i = 0; i < this.state.toys.length; i++){
-            let toy = this.state.toys[i];
-            let name = toy.source.name;
-            ProducerSet.forEach(function (value) {
-                if(name.includes(value)){
-                    console.log(name);
-                    tempToys.add(toy);
-                    tempProducers.add(toy.source.name.split(" ")[0]);
-                }
-            })
-        }
-
-        console.log(tempToys);
-        console.log(tempProducers);
-        this.setState({toys: Array.from(tempToys)});
-        this.setState({producers: Array.from(tempProducers)});
+    getFilteredWithSearchTerm = (SearchTerm) => {
+        this.getSearchedWithFilters(SearchTerm, this.state.activePrice, this.state.activeProducerList);
     }
 
     render() {
@@ -73,7 +73,7 @@ class App extends Component {
             <div>
                 <Switch>
                     <Route exact path="/" render={(props) => (
-                        <Content {...props} getSearched={this.getSearched} toys={this.state.toys} filterByPrice={this.filterByPrice} producers={this.state.producers} getFilteredByProducer={this.getFilteredByProducer}/>
+                        <Content {...props} getSearched={this.getFilteredWithSearchTerm} toys={this.state.toys} getFilteredByPrice={this.getFilteredByPrice} producers={this.state.producers} getFilteredByProducer={this.getFilteredByProducer} getSearchedWithFilters={this.getSearchedWithFilters}/>
                         )}
                     />
                     <Route exact path="/tuote/:id" component={ProductPage}/>

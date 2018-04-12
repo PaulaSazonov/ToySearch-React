@@ -13,7 +13,7 @@ import Checkbox from './Checkbox';
 class Filter extends Component {
     constructor(props){
         super(props);
-        this.state = {toys: [], producer: '', min: 0, max: 200, step: 5, currentValue: 100};
+        this.state = {toys: [], producer: '', min: 0, max: 200, step: 5, currentValue: 200};
     }
 
 
@@ -29,6 +29,9 @@ class Filter extends Component {
     makeASearch = (event) => {
         event.preventDefault();
         console.log(this.selectedCheckboxes);
+        console.log(this.state.currentValue);
+        // this.props.getFilteredByProducer(this.selectedCheckboxes);
+        console.log(this.props);
         this.props.getFilteredByProducer(this.selectedCheckboxes);
     };
 
@@ -38,7 +41,7 @@ class Filter extends Component {
 
     changeValue = (event) => {
         this.setState({currentValue: event.target.value});
-        this.props.filterByPrice(this.state.currentValue);
+        this.props.getFilteredByPrice(this.state.currentValue);
     };
 
     /**
