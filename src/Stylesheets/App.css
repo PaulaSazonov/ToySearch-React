@@ -31,7 +31,7 @@ img{
     text-align: center;
     display: flex;
     flex-direction: column;
-    height: 12em !important;
+    height: 10em !important;
 }
 .flex-row.row:after,
 .flex-row.row:before {
@@ -45,7 +45,7 @@ img{
     display: flex;
     padding: 3em;
     text-align: center;
-    font-family: 'Jua';
+    font-family: 'Sniglet';
     border-bottom: none;
 }
 .pageHeader {
@@ -98,23 +98,27 @@ img{
     margin-left: auto;
 }
 #productheader{
-    font-size: xx-large;
+    font-family: Sniglet;
+    font-size: 2em;
     text-align: center;
     font-weight: bolder;
     padding: 1em;
 }
 #productinfocontainer{
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.4);
     border-radius: 10px;
     padding: 2em;
     margin-bottom: 5em;
     margin-right: 2em;
     margin-right: 2em;
 }
-.linktostore{
-    align-items: center;
-    position: absolute;
-    bottom: 10%;
+#storedata{
+    background-color: white;
+    border-radius: 10px;
+    padding: 1em;
+}
+.thumbnail{
+    height: available;
 }
 
 .storeLink{
@@ -142,17 +146,21 @@ img{
 
 }
 .notfound{
-    background-color: gold;
+    background-color: rgba(255, 255, 0, 0.4);
     border-radius: 10px;
-    padding: 3em;
+    padding: 2em;
     margin: 4em;
     align-items: center;
     justify-content: center;
 }
 #notfoundtext{
+    font-family: Sniglet;
     font-weight: bolder;
     text-align: center;
-    padding-bottom: 2em;
+    padding-bottom: 1em;
+}
+#notfoundteddy{
+    height: 12em;
 }
 
 #linktohome{

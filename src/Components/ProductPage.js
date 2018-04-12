@@ -55,30 +55,32 @@ class ProductPage extends Component {
                 <div className="pageHeader">
                     <Image responsive src={logo} alt=""/>
                 </div>
-                <h1 id="productheader">Tuotteen tiedot </h1>
+                <h1 id="productheader">Tuotteen tiedot: </h1>
 
                 <div id="productinfocontainer">
                     <div className="productPageImg" >
                         <Image src={this.state.product.details[0].urlToImage} responsive rounded/>
                     </div>
-                    <Table>
-                        <thead>
-                            <tr>
-                                <th>
-                                    Tuote
-                                </th>
-                                <th>
-                                    Hinta
-                                </th>
-                                <th>
-                                    Myyjä
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {storeList}
-                        </tbody>
-                    </Table>
+                    <div id="storedata">
+                        <Table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Tuote
+                                    </th>
+                                    <th>
+                                        Hinta
+                                    </th>
+                                    <th>
+                                        Myyjä
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {storeList}
+                            </tbody>
+                        </Table>
+                    </div>
                 </div>
             </div>
         )

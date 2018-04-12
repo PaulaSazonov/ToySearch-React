@@ -9,23 +9,27 @@ class Toy extends Component {
         this.state ={urltoimage: props.toy.details[0].urlToImage};
     }
     backupImage = () => {
-        this.setState({urltoimage: '/Images/teddy.jpg'});
+        this.setState({urltoimage: '/Images/teddythumbnail.png'});
     }
     render () {
         return (
             <Col xs={1} sm={2} md={3} lg={4}>
-                <Thumbnail src={this.state.urltoimage} onError={this.backupImage}>
-                    <p>{this.props.toy.producer}</p>
-                    <div className="toydetails">{this.props.toy.name}</div>
-                    <p>{new Intl.NumberFormat('fi-FI', {
-                        style: 'currency',
-                        currency: 'EUR'
-                    }).format(this.props.toy.lowestPrice)}</p>
-                    <p><a href={this.props.toy.urlToWebStore}> {this.props.toy.webstoreName} </a> </p>
-                    <div className="linktostore">
-                        <Link className="storeLink" to={"/tuote/"+ this.props.id}>Tuotteen tietoihin</Link>
+                <Link to={"/tuote/"+ this.props.id}>
+                    <div>
+                    <Thumbnail src={this.state.urltoimage} onError={this.backupImage}>
+                        <p>{this.props.toy.producer}</p>
+                        <div className="toydetails">{this.props.toy.name}</div>
+                        <p>{new Intl.NumberFormat('fi-FI', {
+                            style: 'currency',
+                            currency: 'EUR'
+                        }).format(this.props.toy.lowestPrice)}</p>
+                        <p><a href={this.props.toy.urlToWebStore}> {this.props.toy.webstoreName} </a> </p>
+                        {/*<div className="linktostore">*/}
+                            {/*<Link className="storeLink" to={"/tuote/"+ this.props.id}>Tuotteen tietoihin*/}
+                        {/*</div>*/}
+                    </Thumbnail>
                     </div>
-                </Thumbnail>
+                </Link>
             </Col>
         )
     }
