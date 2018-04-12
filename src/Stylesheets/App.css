@@ -79,6 +79,16 @@ img{
     background-color: yellowgreen;
     border-radius: 10px;
 }
+
+.totalHits{
+    text-align: center;
+    vertical-align: center;
+    /*padding: 0.5em;*/
+    /*padding-top: 1em;*/
+    background-color: hotpink;
+    border-radius: 10px;
+}
+
 .control-label{
     display: block;
     padding: 1em;
@@ -186,7 +196,5 @@ img{
     text-after-overflow: ellipsis;
     max-height: available;
 }
-
-
 
 

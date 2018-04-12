@@ -25,7 +25,6 @@ class App extends Component {
     getListAndUpdate = () => {
         getAllToys2(function (list) {
             this.setState({toys: list[0].hits, producers: list[1], hits: list[0].hits.length});
-            console.log(this.state.toys);
         }.bind(this))
     };
 
@@ -43,12 +42,8 @@ class App extends Component {
     getSearchedWithFilters = (SearchTerm, Price, ProducerSet, updateSliderAndPage) => {
 
         this.setState({ activeSearchTerm: SearchTerm, activePrice: Price, activeProducerList: ProducerSet }, () => {
-            console.log(this.state.activeProducerList);
-            console.log(this.state.activePrice);
-            console.log(this.state.activeSearchTerm);
             let pListAsString = '';
             this.state.activeProducerList.forEach(p => {pListAsString += p+":"});
-            console.log(pListAsString);
             getToysBySearchTermAndFilter(this.state.activeSearchTerm, this.state.activePrice, pListAsString, function(list, error){
                 if(error){
                     this.setState({notfound: true});
@@ -56,7 +51,6 @@ class App extends Component {
                     this.setState({toys: list[0].hits, hits: list[0].hits.length, notfound: false});
                     this.setState({producers: list[1], notfound: false});
                     if(updateSliderAndPage===1){
-                        console.log('from App.js: ' + list[2]);
                         this.setState({sliderMax: list[2], sliderValue: list[2], page: 1});
                     }
                 }
@@ -81,7 +75,6 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.state.toys);
         let toyListToRender = [];
         if(this.state.toys.length > 0){
             let indexes = (this.state.page-1)*24;
@@ -92,13 +85,11 @@ class App extends Component {
                 lastIndex = indexes + 23;
             }
             for(let i = indexes; i <= lastIndex; i++){
-                console.log(this.state.toys[i]);
                 toyListToRender.push(this.state.toys[i]);
             }
         } else {
             toyListToRender = this.state.toys;
         }
-        console.log(toyListToRender);
     return (
         <Router>
             <div>
