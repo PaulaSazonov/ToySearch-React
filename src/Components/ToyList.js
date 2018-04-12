@@ -19,7 +19,7 @@ class ToyList extends Component {
                 </Row>
                 <Row>
                     <Col md={9} mdOffset={3}>
-                    <ItemPagination numberOfHits={this.props.numberOfHits}/>
+                    <ItemPagination/>
                     </Col>
                 </Row>
             </Grid>

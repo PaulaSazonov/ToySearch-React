@@ -34,7 +34,7 @@ class Content extends Component {
                         {this.state.notfound ?
                             <p>Hakusanalla ei löytynyt tuotteita</p>
                             :
-                            <ToyList toys={this.props.toys} numberOfHits={this.props.numberOfHits}/>
+                            <ToyList toys={this.props.toys}/>
                         }
                     </Col>
                 </Row>
