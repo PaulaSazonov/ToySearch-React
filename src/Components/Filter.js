@@ -13,9 +13,8 @@ import Checkbox from './Checkbox';
 class Filter extends Component {
     constructor(props){
         super(props);
-        this.state = {toys: [], producer: '', min: 0, max: 200, step: 5, currentValue: 200};
+        this.state = {toys: [], producer: '', min: 0, step: 5, currentValue: this.props.sliderValue};
     }
-
 
     componentWillMount = () => {
         this.selectedCheckboxes = new Set(); //creates an empty set that is used to store selected checkboxes
@@ -83,6 +82,7 @@ class Filter extends Component {
     )
 
     render () {
+        let max = Math.ceil(this.props.sliderMax);
         return (
             <div>
                 <br/>
@@ -91,12 +91,12 @@ class Filter extends Component {
                     <ControlLabel>Hintakatto</ControlLabel>
                     </div>
                     <div>
-                        <div id="pricerange"><span>{this.state.min}€</span><span>{this.state.max}€</span></div>
+                        <div id="pricerange"><span>{this.state.min}€</span><span>{max}€</span></div>
                         <ReactBootstrapSlider
                         value={this.state.currentValue}
                         slideStop={this.changeValue}
                         step={this.state.step}
-                        max={this.state.max}
+                        max={this.props.sliderMax}
                         min={this.state.min}
                         orientation="horizontal"
                         reversed={false}/>

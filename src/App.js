@@ -11,7 +11,9 @@ class App extends Component {
         producers: [],
         activePrice: '',
         activeProducerList: [],
-        activeSearchTerm: ''
+        activeSearchTerm: '',
+        sliderMax: 200,
+        sliderValue: 200
     };
 
     componentDidMount = () => {
@@ -35,7 +37,7 @@ class App extends Component {
         }.bind(this))
     };
 
-    getSearchedWithFilters = (SearchTerm, Price, ProducerSet) => {
+    getSearchedWithFilters = (SearchTerm, Price, ProducerSet, updateSlider) => {
 
         this.setState({ activeSearchTerm: SearchTerm, activePrice: Price, activeProducerList: ProducerSet }, () => {
             console.log(this.state.activeProducerList);
@@ -50,21 +52,25 @@ class App extends Component {
                 } else {
                     this.setState({toys: list[0].hits, notfound: false});
                     this.setState({producers: list[1], notfound: false});
+                    if(updateSlider===1){
+                        console.log('from App.js: ' + list[2]);
+                        this.setState({sliderMax: list[2], sliderValue: list[2]});
+                    }
                 }
             }.bind(this))
         });
     };
 
     getFilteredByPrice = (price) => {
-        this.getSearchedWithFilters(this.state.activeSearchTerm, price, this.state.activeProducerList);
+        this.getSearchedWithFilters(this.state.activeSearchTerm, price, this.state.activeProducerList, 0);
     }
 
     getFilteredByProducer = (ProducerSet) => {
-        this.getSearchedWithFilters(this.state.activeSearchTerm, this.state.activePrice, ProducerSet);
+        this.getSearchedWithFilters(this.state.activeSearchTerm, this.state.activePrice, ProducerSet, 0);
     }
 
     getFilteredWithSearchTerm = (SearchTerm) => {
-        this.getSearchedWithFilters(SearchTerm, this.state.activePrice, this.state.activeProducerList);
+        this.getSearchedWithFilters(SearchTerm, '', [], 1);
     }
 
     render() {
@@ -73,7 +79,7 @@ class App extends Component {
             <div>
                 <Switch>
                     <Route exact path="/" render={(props) => (
-                        <Content {...props} getSearched={this.getFilteredWithSearchTerm} toys={this.state.toys} getFilteredByPrice={this.getFilteredByPrice} producers={this.state.producers} getFilteredByProducer={this.getFilteredByProducer} getSearchedWithFilters={this.getSearchedWithFilters}/>
+                        <Content {...props} getSearched={this.getFilteredWithSearchTerm} toys={this.state.toys} getFilteredByPrice={this.getFilteredByPrice} producers={this.state.producers} getFilteredByProducer={this.getFilteredByProducer} sliderMax={this.state.sliderMax} sliderValue={this.state.sliderValue}/>
                         )}
                     />
                     <Route exact path="/tuote/:id" component={ProductPage}/>

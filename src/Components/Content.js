@@ -28,7 +28,7 @@ class Content extends Component {
                 </Row>
                 <Row>
                     <Col md={3}>
-                        <Filter getSearched={this.props.getSearched} getFilteredByPrice={this.props.getFilteredByPrice} producers={this.props.producers} getFilteredByProducer={this.props.getFilteredByProducer} getSearchedWithFilters={this.props.getSearchedWithFilters}/>
+                        <Filter getSearched={this.props.getSearched} getFilteredByPrice={this.props.getFilteredByPrice} producers={this.props.producers} getFilteredByProducer={this.props.getFilteredByProducer} sliderMax={this.props.sliderMax} sliderValue={this.props.sliderValue}/>
                     </Col>
                     <Col  md={9}>
                         {this.state.notfound ?
