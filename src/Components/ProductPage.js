@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import logo from '../Images/Lelukauppa.png';
+import {PageHeader} from 'react-bootstrap';
 import {Table} from 'react-bootstrap';
 import {getToysById} from "../ServiceClient";
 import {Image} from 'react-bootstrap';
 import '../Stylesheets/App.css';
+import logo from '../Images/Leluhaku.png'
 
 
 class ProductPage extends Component {

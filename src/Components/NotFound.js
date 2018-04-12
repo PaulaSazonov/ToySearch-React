@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../Stylesheets/App.css';
 import {Image} from 'react-bootstrap';
-import logo from '../Images/Lelukauppa.png';
+import logo from '../Images/Leluhaku.png';
 
 class NotFound extends Component {
     render (){

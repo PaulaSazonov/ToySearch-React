@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import Toy from './Toy';
 import '../Stylesheets/App.css';
-import {Grid} from 'react-bootstrap';
+import {Col, Grid} from 'react-bootstrap';
 import {Row} from 'react-bootstrap';
+import ItemPagination from "./ItemPagination";
 
 class ToyList extends Component {
     render () {
@@ -15,6 +16,11 @@ class ToyList extends Component {
             <Grid className="container">
                 <Row md={9} className="show-grid row-no-padding flex-row">
                     {all}
+                </Row>
+                <Row>
+                    <Col md={9} mdOffset={3}>
+                    <ItemPagination numberOfHits={this.props.numberOfHits}/>
+                    </Col>
                 </Row>
             </Grid>
 

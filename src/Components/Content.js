@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
+import {PageHeader, Grid, Row,Col,Image} from 'react-bootstrap';
 import ToyList from './ToyList'
 import Search from './Search';
 import Filter from './Filter';
-import {PageHeader} from 'react-bootstrap';
-import {Grid} from 'react-bootstrap';
-import {Row} from 'react-bootstrap';
-import {Col} from 'react-bootstrap';
-import {Image} from 'react-bootstrap';
-import logo from '../Images/Lelukauppa.png'
+import logo from '../Images/Leluhaku.png'
 
 class Content extends Component {
     constructor(props){
@@ -38,7 +34,7 @@ class Content extends Component {
                         {this.state.notfound ?
                             <p>Hakusanalla ei löytynyt tuotteita</p>
                             :
-                            <ToyList toys={this.props.toys}/>
+                            <ToyList toys={this.props.toys} numberOfHits={this.props.numberOfHits}/>
                         }
                     </Col>
                 </Row>
