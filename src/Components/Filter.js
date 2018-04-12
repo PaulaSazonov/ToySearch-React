@@ -81,10 +81,26 @@ class Filter extends Component {
         this.props.producers.map(this.createCheckbox)
     )
 
+    emptyFilters = () => {
+        this.selectedCheckboxes.clear();
+        this.props.getFilteredByProducer([]);
+    }
+
     render () {
         let max = Math.ceil(this.props.sliderMax);
+        let totalHitsText = 'Hakutuloksia yhteensä: ' + this.props.hits;
+        let emptyButton;
+
+        if(this.selectedCheckboxes.size !== 0){
+            emptyButton = <Button onClick={this.emptyFilters}>Tyhjennä</Button>;
+        }
+
         return (
             <div>
+                <br/>
+                <div className="totalHits">
+                    <ControlLabel>{totalHitsText}</ControlLabel>
+                </div>
                 <br/>
                 <div className="priceslider">
                     <div>
@@ -108,10 +124,8 @@ class Filter extends Component {
                         <ControlLabel>Rajaa valmistajan mukaan</ControlLabel>
                         {this.createCheckboxes()}
 
-                        <Button bsSize="large" type="submit">Rajaa</Button>
-                        {/*<FormGroup bsSize="small">*/}
-                            {/*<FormControl value={this.state.producer} onChange={this.producerValueChanged} type="text" placeholder="Valmistajan nimi" />*/}
-                        {/*</FormGroup>*/}
+                        <Button type="submit">Rajaa</Button>
+                        {emptyButton}
                     </form>
                 </div>
 

@@ -18,7 +18,6 @@ class ToyList extends Component {
                 </Row>
                 <Row>
                     <Col md={9} mdOffset={3}>
-                    <ItemPagination/>
                     </Col>
                 </Row>
             </Grid>
