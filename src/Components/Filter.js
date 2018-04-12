@@ -16,7 +16,7 @@ class Filter extends Component {
 
     componentWillMount = () => {
         this.selectedCheckboxes = new Set(); //creates an empty set that is used to store selected checkboxes
-    }
+    };
 
     /**
      * when form submits, prints to console selected checkboxes --> TO BE UPDATED!
@@ -53,7 +53,7 @@ class Filter extends Component {
         } else {
             this.selectedCheckboxes.add(label);
         }
-    }
+    };
 
     /**
      * calls toggleCheckbox function each time checkbox is selected / unselected
@@ -70,19 +70,19 @@ class Filter extends Component {
                 key={label}
             />
         </div>
-    )
+    );
 
     /**
      * create the checkboxes from list retrieved as props
      */
     createCheckboxes = () => (
         this.props.producers.map(this.createCheckbox)
-    )
+    );
 
     emptyFilters = () => {
         this.selectedCheckboxes.clear();
         this.props.getFilteredByProducer([]);
-    }
+    };
 
     render () {
         let max = Math.ceil(this.props.sliderMax);

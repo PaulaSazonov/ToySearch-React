@@ -10,7 +10,7 @@ class Toy extends Component {
     }
     backupImage = () => {
         this.setState({urltoimage: '/Images/teddythumbnail.png'});
-    }
+    };
     render () {
         return (
             <Col xs={1} sm={2} md={3} lg={4}>
@@ -19,7 +19,7 @@ class Toy extends Component {
                     <Thumbnail src={this.state.urltoimage} onError={this.backupImage}>
                         <p>{this.props.toy.producer}</p>
                         <div className="toydetails">{this.props.toy.name}</div>
-                        <p>{new Intl.NumberFormat('fi-FI', {
+                        <p id="price">{new Intl.NumberFormat('fi-FI', {
                             style: 'currency',
                             currency: 'EUR'
                         }).format(this.props.toy.lowestPrice)}</p>

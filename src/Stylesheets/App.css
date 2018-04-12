@@ -196,5 +196,10 @@ img{
     text-after-overflow: ellipsis;
     max-height: available;
 }
+#price{
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+    border-top: 1px solid lightgray;
+}
 
 
