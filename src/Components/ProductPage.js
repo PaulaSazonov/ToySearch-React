@@ -82,6 +82,7 @@ class ProductPage extends Component {
                             </tbody>
                         </Table>
                     </div>
+                    <a id="linktohome" href='/'>Palaa etusivulle</a>
                 </div>
             </div>
         )

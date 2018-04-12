@@ -1,5 +1,5 @@
 body {
-    font-family: 'Open Sans';
+    font-family: 'Sniglet';
     font-size: large;
     background-color: aliceblue;
     box-sizing: border-box;
@@ -116,6 +116,7 @@ img{
     background-color: white;
     border-radius: 10px;
     padding: 1em;
+    margin-bottom: 2em;
 }
 .thumbnail{
     height: available;
@@ -146,7 +147,7 @@ img{
 
 }
 .notfound{
-    background-color: rgba(255, 255, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
     padding: 2em;
     margin: 4em;
@@ -167,6 +168,8 @@ img{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: x-large;
+    color: green;
 }
 .footerbar{
     background-color: darkseagreen;
