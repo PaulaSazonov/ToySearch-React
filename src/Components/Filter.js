@@ -81,6 +81,11 @@ class Filter extends Component {
         this.props.producers.map(this.createCheckbox)
     )
 
+    emptyFilters = () => {
+        this.selectedCheckboxes.clear();
+        this.props.getFilteredByProducer([]);
+    }
+
     render () {
         let max = Math.ceil(this.props.sliderMax);
         return (
@@ -108,10 +113,8 @@ class Filter extends Component {
                         <ControlLabel>Rajaa valmistajan mukaan</ControlLabel>
                         {this.createCheckboxes()}
 
-                        <Button bsSize="large" type="submit">Rajaa</Button>
-                        {/*<FormGroup bsSize="small">*/}
-                            {/*<FormControl value={this.state.producer} onChange={this.producerValueChanged} type="text" placeholder="Valmistajan nimi" />*/}
-                        {/*</FormGroup>*/}
+                        <Button type="submit">Rajaa</Button>
+                        <Button onClick={this.emptyFilters}>Tyhjennä</Button>
                     </form>
                 </div>
 
