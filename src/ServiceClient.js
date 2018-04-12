@@ -24,6 +24,23 @@ export function getToysBySearchTerm (searchTerm, callback) {
         })
 }
 
+export function getToysBySearchTermAndFilter (searchTerm, price, producerlist, callback) {
+    console.log("from ServiceClient: " + "/api/search3?q="+searchTerm+"&p="+price+"&l="+producerlist);
+    return fetch("/api/search3?q="+searchTerm+"&p="+price+"&l="+producerlist)
+        .then(function (response) {
+            if (response.status === 404) {
+                throw new Error("virhe");
+            }
+            return response.json();
+        })
+        .then(function (json) {
+            callback(json);
+
+        }).catch(function () {
+            callback([], Error);
+        })
+}
+
 export function getToysByProducer (producer, callback) {
     return fetch("/api/toys/"+producer)
         .then(function (response) {
