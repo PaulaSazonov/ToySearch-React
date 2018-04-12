@@ -7,7 +7,6 @@ import ItemPagination from "./ItemPagination";
 
 class ToyList extends Component {
     render () {
-        // console.log(this.props.toys);
         let all = this.props.toys
             .map(function (toy) {
                 return (<Toy toy={toy.source} key={toy.id} id={toy.id}/>)
@@ -23,7 +22,6 @@ class ToyList extends Component {
                     </Col>
                 </Row>
             </Grid>
-
         )
     }
 }
