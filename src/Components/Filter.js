@@ -88,8 +88,19 @@ class Filter extends Component {
 
     render () {
         let max = Math.ceil(this.props.sliderMax);
+        let totalHitsText = 'Hakutuloksia yhteensä: ' + this.props.hits;
+        let emptyButton;
+
+        if(this.selectedCheckboxes.size !== 0){
+            emptyButton = <Button onClick={this.emptyFilters}>Tyhjennä</Button>;
+        }
+
         return (
             <div>
+                <br/>
+                <div className="totalHits">
+                    <ControlLabel>{totalHitsText}</ControlLabel>
+                </div>
                 <br/>
                 <div className="priceslider">
                     <div>
@@ -114,7 +125,7 @@ class Filter extends Component {
                         {this.createCheckboxes()}
 
                         <Button type="submit">Rajaa</Button>
-                        <Button onClick={this.emptyFilters}>Tyhjennä</Button>
+                        {emptyButton}
                     </form>
                 </div>
 
