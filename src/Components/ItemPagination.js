@@ -18,7 +18,7 @@ class ItemPagination extends Component {
 
     render() {
         return (
-            <div>
+            <div id="pages">
                 <Pagination
                     activePage={this.state.activePage}
                     itemsCountPerPage={24}

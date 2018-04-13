@@ -90,7 +90,7 @@ class Filter extends Component {
         let emptyButton;
 
         if(this.selectedCheckboxes.size !== 0){
-            emptyButton = <Button onClick={this.emptyFilters}>Tyhjennä</Button>;
+            emptyButton = <Button id="emptybutton" onClick={this.emptyFilters}>Tyhjennä</Button>;
         }
 
         return (
@@ -122,7 +122,7 @@ class Filter extends Component {
                         <ControlLabel>Rajaa valmistajan mukaan</ControlLabel>
                         {this.createCheckboxes()}
 
-                        <Button type="submit">Rajaa</Button>
+                        <Button id="filterbutton" type="submit">Rajaa</Button>
                         {emptyButton}
                     </form>
                 </div>
