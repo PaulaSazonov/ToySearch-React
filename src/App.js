@@ -35,6 +35,7 @@ class App extends Component {
             } else {
                 this.setState({toys: list[0].hits, hits: list[0].hits.length, notfound: false});
                 this.setState({producers: list[1], notfound: false});
+                console.log(list[1]);
             }
         }.bind(this))
     };

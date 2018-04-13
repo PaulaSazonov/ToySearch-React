@@ -7,7 +7,6 @@ import '../Stylesheets/App.css';
 import Checkbox from './Checkbox';
 
 
-
 class Filter extends Component {
     constructor(props){
         super(props);
@@ -25,10 +24,6 @@ class Filter extends Component {
 
     makeASearch = (event) => {
         event.preventDefault();
-        console.log(this.selectedCheckboxes);
-        console.log(this.state.currentValue);
-        // this.props.getFilteredByProducer(this.selectedCheckboxes);
-        console.log(this.props);
         this.props.getFilteredByProducer(this.selectedCheckboxes);
     };
 
@@ -62,12 +57,11 @@ class Filter extends Component {
      * @param label
      * @returns {*}
      */
-    createCheckbox = label => (
-        <div>
-            <Checkbox
+    createCheckbox = (label) => (
+        <div key={this.hashCode(label)}>
+        <Checkbox
                 label={label}
                 handleCheckboxChange={this.toggleCheckbox}
-                key={label}
             />
         </div>
     );
@@ -78,6 +72,10 @@ class Filter extends Component {
     createCheckboxes = () => (
         this.props.producers.map(this.createCheckbox)
     );
+
+    hashCode = function(s){
+        return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
+    }
 
     emptyFilters = () => {
         this.selectedCheckboxes.clear();
