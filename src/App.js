@@ -8,6 +8,7 @@ import {
 } from "./ServiceClient";
 import Content from "./Components/Content";
 import NotFound from "./Components/NotFound";
+import axios from 'axios';
 
 class App extends Component {
   state = {
@@ -23,10 +24,16 @@ class App extends Component {
   };
 
   componentDidMount = () => {
-    this.getListAndUpdate();
+    axios
+      .get('http://localhost:3001/toys')
+      .then(response => {
+        console.log('promise fulfilled')
+        this.setState({ toys: response.data })
+      })
+    // this.getListAndUpdate();
   };
 
-  getListAndUpdate = () => {
+  /* getListAndUpdate = () => {
     getAllToys2(
       function(list) {
         this.setState({
@@ -36,7 +43,7 @@ class App extends Component {
         });
       }.bind(this)
     );
-  };
+  }; */
 
   getSearched = SearchTerm => {
     getToysBySearchTerm(
