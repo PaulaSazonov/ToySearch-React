@@ -1,34 +1,33 @@
-
-import React, { Component } from 'react';
-import Pagination from 'react-js-pagination';
+import React, { Component } from "react";
+import Pagination from "react-js-pagination";
 
 class ItemPagination extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            activePage: this.props.page
-        };
-    }
-
-    handlePageChange = (pageNumber) => {
-        console.log(`active page is ${pageNumber}`);
-        this.setState({activePage: pageNumber});
-        this.props.updatePage(pageNumber);
+  constructor(props) {
+    super(props);
+    this.state = {
+      activePage: this.props.page
     };
+  }
 
-    render() {
-        return (
-            <div id="pages">
-                <Pagination
-                    activePage={this.state.activePage}
-                    itemsCountPerPage={24}
-                    totalItemsCount={this.props.hits}
-                    pageRangeDisplayed={5}
-                    onChange={this.handlePageChange}
-                />
-            </div>
-        );
-    }
+  handlePageChange = pageNumber => {
+    console.log(`active page is ${pageNumber}`);
+    this.setState({ activePage: pageNumber });
+    this.props.updatePage(pageNumber);
+  };
+
+  render() {
+    return (
+      <div id="pages">
+        <Pagination
+          activePage={this.state.activePage}
+          itemsCountPerPage={24}
+          totalItemsCount={this.props.hits}
+          pageRangeDisplayed={5}
+          onChange={this.handlePageChange}
+        />
+      </div>
+    );
+  }
 }
 
 // class ItemPagination extends Component {
